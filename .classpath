@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-19">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-19">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
@@ -51,11 +51,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/javax.persistence-api-2.2.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jaxb-api-2.3.1.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -98,5 +93,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/Users/owner/eclipse-workspace/BusTicketMaker/src/main/webapp/WEB-INF/lib/javax.persistence-api-2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/owner/eclipse-workspace/BusTicketMaker/src/main/webapp/WEB-INF/lib/hibernate-core-5.6.5.Final.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
