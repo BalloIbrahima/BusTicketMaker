@@ -11,6 +11,7 @@
 	  <servlet-name>HomeServlet</servlet-name>
 	  <url-pattern>/acceuil</url-pattern>
 	</servlet-mapping>
+	 <display-name>HomeServlet</display-name>
 	  <welcome-file-list>
 	    <welcome-file>pages/login.jsp</welcome-file>
 	  </welcome-file-list>

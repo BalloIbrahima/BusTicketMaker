@@ -16,34 +16,31 @@
 			
 		<label id='welcome'>Bienvenue</label>
 		
-		<label id='msg'>Veuillez remplir les champs pour vous connectez !</label>
 		
-		<form>
-		  <!-- Email input -->
-		  <div class="form-outline mb-2">
-		    <input type="email" id="form2Example1" class="form-control" />
-		    <label class="form-label" for="form2Example1">Email address</label>
-		  </div>
-		
-		  <!-- Password input -->
-		  <div class="form-outline mb-2">
-		    <input type="password" id="form2Example2" class="form-control" />
-		    <label class="form-label" for="form2Example2">Password</label>
-		  </div>
-		
-		  <!-- 2 column grid layout for inline styling -->
-		  <div class="row mb-4">
-		
-		    <div class="col">
-		      <!-- Simple link -->
-		      <a href="#!">Forgot password?</a>
-		    </div>
-		  </div>
-		
-		  <!-- Submit button -->
-		  <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
-		
-		</form>
+		<form method="post" action="${pageContext.request.contextPath}/HomeServlet">
+           <p>Connectez vous a votre compte !</p>
+
+           <div class="form-outline mb-4">
+             <input type="email" id="form2Example11" class="form-control"
+               placeholder="Nom d'utilisateur" />
+            
+           </div>
+
+           <div class="form-outline mb-4">
+             <input type="password" id="form2Example22" placeholder="Mot de passe" class="form-control" />
+           </div>
+           
+           <a class="text-muted" href="#!">Mot de paase oublie ?</a>
+
+           <div class="text-center pt-1 mb-5 pb-1">
+             <button class="btn btn-primary " type="submit">
+               Connexion</button>
+             
+           </div>
+
+        
+         </form>
+
 				
 	
 	</div>
