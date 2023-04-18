@@ -1,0 +1,11 @@
+@charset "UTF-8";
+.navbar-vertical.navbar-expand-xs .navbar-collapse{
+    height: auto;
+}
+.navbar-vertical .nav-item:hover .nav-link{
+    background-color: #000;
+}
+
+.navbar-vertical .navbar-nav>.nav-item .nav-link.active{
+    background-color: #000;
+}

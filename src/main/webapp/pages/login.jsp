@@ -7,7 +7,8 @@
 	<meta charset="UTF-8">
 	<title>login</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-	<link href="${pageContext.request.contextPath}/ressources/css/login.css" rel="stylesheet" ></head>
+	<link href="${pageContext.request.contextPath}/ressources/css/login.css" rel="stylesheet" >
+	</head>
 <body>
 	<div class='containt'>
 		
