@@ -17,17 +17,17 @@
 		<label id='welcome'>Bienvenue</label>
 		
 		
-		<form method="post" action="${pageContext.request.contextPath}/HomeServlet">
+		<form method="post" action="${pageContext.request.contextPath}/home">
            <p>Connectez vous a votre compte !</p>
 
            <div class="form-outline mb-4">
-             <input type="email" id="form2Example11" class="form-control"
+             <input type="text" id="username" name="username" required class="form-control"
                placeholder="Nom d'utilisateur" />
             
            </div>
 
            <div class="form-outline mb-4">
-             <input type="password" id="form2Example22" placeholder="Mot de passe" class="form-control" />
+             <input type="password" id="password" name="password" required placeholder="Mot de passe" class="form-control" />
            </div>
            
            <a class="text-muted" href="#!">Mot de paase oublie ?</a>
