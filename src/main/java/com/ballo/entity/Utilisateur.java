@@ -1,8 +1,10 @@
 package com.ballo.entity;
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity(name="utilisateur")
-public class Utilisateur {
+public class Utilisateur implements Serializable{
 	
 	@Id @GeneratedValue
 	private Long id;
