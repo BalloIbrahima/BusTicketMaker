@@ -2,15 +2,15 @@ package com.ballo.dao;
 
 import java.util.List;
 
-public abstract class Dao<T> {
+public  interface Dao<T> {
 	//Rechercher
-    public abstract T recherche(int id);
+    public  T recherche(int id);
     //inserer
-    public abstract void enregistrer(T obj);
+    public  void enregistrer(T obj);
     //modifier
-    public abstract void modifier(T obj, int id);
+    public  void modifier(T obj, int id);
     //supprimer
-    public abstract void supprimner(T obj);
+    public  void supprimner(T obj);
     //liste
-    public abstract List<T>liste();
+    public  List<T>liste();
 }
