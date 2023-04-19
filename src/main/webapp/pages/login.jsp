@@ -22,7 +22,7 @@
            <p>Connectez vous a votre compte !</p>
 
            <div class="form-outline mb-4">
-             <input type="text" id="username" name="username" required class="form-control"
+             <input type="text" id="pseudo" name="pseudo" required class="form-control"
                placeholder="Nom d'utilisateur" />
             
            </div>
