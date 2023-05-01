@@ -1,15 +1,22 @@
 package com.ballo.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity(name="billet")
-public class Billet {
+@Entity
+@Table(name="billet")
+public class Billet implements Serializable{
 
-	@Id @GeneratedValue
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	private String nomClient;

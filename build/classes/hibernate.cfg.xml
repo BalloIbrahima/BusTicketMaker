@@ -12,5 +12,8 @@
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="com.ballo.entity.Utilisateur"/>
+        <mapping class="com.ballo.entity.Billet"/>
+        
     </session-factory>
 </hibernate-configuration>

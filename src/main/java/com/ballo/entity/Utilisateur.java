@@ -3,10 +3,14 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-@Entity(name="utilisateur")
+@Entity
+@Table(name="utilisateur")
 public class Utilisateur implements Serializable{
 	
-	@Id @GeneratedValue
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String nom;
 	private String prenom;

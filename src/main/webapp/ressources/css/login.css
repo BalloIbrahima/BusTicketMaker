@@ -46,3 +46,8 @@ body{
 	font-weight:100;
 	
 }
+
+.erreur{
+	background-color :red;
+	color:#fff
+}

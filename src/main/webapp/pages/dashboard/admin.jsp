@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dahboard</title>
+<title>Dashboard</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link href="${pageContext.request.contextPath}/ressources/css/header.css" rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/ressources/css/index.css" rel="stylesheet" >
@@ -38,7 +38,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white active">
+          <a class="nav-link text-white ">
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">home</i>
               </div>
@@ -65,13 +65,13 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link text-white ">
+          <a class="nav-link text-white " href="${pageContext.request.contextPath}/">
             
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">group</i>
               </div>
             
-            <span class="nav-link-text ms-1">Admins</span>
+            <span class="nav-link-text ms-1 actives">Admins</span>
           </a>
         </li>
        
@@ -120,64 +120,7 @@
      <!-- end head -->
      <!-- body contenu  -->
      <div class=" ps-5 pe-4 pb-5" >
-     	<div class="container mt-5 mb-5 d-flex justify-content-center">
-		    <form class="card px-1 py-4" method="post" action="admin">
-		        <div class="card-body">
-		            <h6 class="card-title mb-3">Ajouter un nouvel utilisateur !</h6>
-		            <div class="row">
-		                <div class="col-sm-12">
-		                    <div class="form-group">
-		                       <input class="form-control" id='nom' name='nom' required type="text" placeholder="Nom"> </div>
-		                </div>
-		            </div>
-		            <div class="row">
-		                <div class="col-sm-12">
-		                    <div class="form-group">
-		                        <div class="input-group"> <input class="form-control"  id='prenom' name='prenom' required type="text" placeholder="Prenom"> </div>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="row">
-		                <div class="col-sm-12">
-		                    <div class="form-group">
-		                        <div class="input-group"> <input class="form-control"  id='pseudo' name='pseudo' required type="text" placeholder="Pseudo"> </div>
-		                    </div>
-		                </div>
-		            </div>
-		            
-		            <% if (request.getAttribute("erreur")!=null) { %>
-           
-           			<div class="row erreur">
-		                <div class="col-sm-12">
-		                    <div class="form-group">
-		                        <div class="input-group"> 
-		                        	<label><%= request.getAttribute("erreur") %> </label>
-		                        </div>
-		                    </div>
-		                </div>
-		            </div>
-		        
-		           <%} %>
-		           
-		           <% if (request.getAttribute("succes")!=null) { %>
-           
-           			<div class="row succes">
-		                <div class="col-sm-12">
-		                    <div class="form-group">
-		                        <div class="input-group"> 
-		                        	<label><%= request.getAttribute("succes") %> </label>
-		                        </div>
-		                    </div>
-		                </div>
-		            </div>
-		        
-		           <%} %>
-		            
-		           
-		            <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="agree-text">Un mot de passe par defaut sera generer pour</small> <a href="#" class="terms">l'utilisateur</a> </div> <button class="btn btn-primary btn-block confirm-button" type='submit' name="creerbtn" value="creer">Valider</button>
-		        </div>
-		    </form>
-		</div>
+     	<p>Hello</p>
      </div>
      <!-- end body contenu -->
         

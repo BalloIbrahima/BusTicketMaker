@@ -31,6 +31,12 @@
              <input type="password" id="password" name="password" required placeholder="Mot de passe" class="form-control" />
            </div>
            
+           <% if (request.getAttribute("erreur")!=null) { %>
+           
+           <div class="form-outline mb-4 erreur">
+           	<label><%= request.getAttribute("erreur") %> </label>
+           </div>
+           <%} %>
            <a class="text-muted" href="#!">Mot de paase oublie ?</a>
 
            <div class="text-center pt-1 mb-5 pb-1">
