@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="com.ballo.entity.Utilisateur"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +21,11 @@
  
 
 <div>
+<% 	HttpSession sess=request.getSession();
+			
+			
+			Utilisateur u=(Utilisateur) sess.getAttribute("user");
+		%>
     <!-- menu -->
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
@@ -102,14 +109,14 @@
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
                     <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Accueil</li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+                <h6 class="font-weight-bolder mb-0">Accueil</h6>
             </nav>
            
             <ul class="navbar-nav  justify-content-end">
                 <li class="nav-item d-flex align-items-center">
                     <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
                         <i class="fa fa-user me-sm-1"></i>
-                        <span class="d-sm-inline d-none">Ballo Ibrahima</span>
+                        <span class="d-sm-inline d-none"><%= u.getNom() %> <%= u.getPrenom() %></span>
                     </a>
                 </li>
                 
@@ -119,66 +126,38 @@
     </nav>
      <!-- end head -->
      <!-- body contenu  -->
-     <div class=" ps-5 pe-4 pb-5" >
-     	<div class="container mt-5 mb-5 d-flex justify-content-center">
-		    <form class="card px-1 py-4" method="post" action="admin">
-		        <div class="card-body">
-		            <h6 class="card-title mb-3">Ajouter un nouvel utilisateur !</h6>
-		            <div class="row">
-		                <div class="col-sm-12">
-		                    <div class="form-group">
-		                       <input class="form-control" id='nom' name='nom' required type="text" placeholder="Nom"> </div>
-		                </div>
-		            </div>
-		            <div class="row">
-		                <div class="col-sm-12">
-		                    <div class="form-group">
-		                        <div class="input-group"> <input class="form-control"  id='prenom' name='prenom' required type="text" placeholder="Prenom"> </div>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="row">
-		                <div class="col-sm-12">
-		                    <div class="form-group">
-		                        <div class="input-group"> <input class="form-control"  id='pseudo' name='pseudo' required type="text" placeholder="Pseudo"> </div>
-		                    </div>
-		                </div>
-		            </div>
-		            
-		            <% if (request.getAttribute("erreur")!=null) { %>
-           
-           			<div class="row erreur">
-		                <div class="col-sm-12">
-		                    <div class="form-group">
-		                        <div class="input-group"> 
-		                        	<label><%= request.getAttribute("erreur") %> </label>
-		                        </div>
-		                    </div>
-		                </div>
-		            </div>
-		        
-		           <%} %>
-		           
-		           <% if (request.getAttribute("succes")!=null) { %>
-           
-           			<div class="row succes">
-		                <div class="col-sm-12">
-		                    <div class="form-group">
-		                        <div class="input-group"> 
-		                        	<label><%= request.getAttribute("succes") %> </label>
-		                        </div>
-		                    </div>
-		                </div>
-		            </div>
-		        
-		           <%} %>
-		            
-		           
-		            <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="agree-text">Un mot de passe par defaut sera generer pour</small> <a href="#" class="terms">l'utilisateur</a> </div> <button class="btn btn-primary btn-block confirm-button" type='submit' name="creerbtn" value="creer">Valider</button>
-		        </div>
-		    </form>
-		</div>
-     </div>
+     <div class="custom-container ps-5 pe-4 pb-5">
+        <!-- <div class="container-fluid py-1 mx-4  "> -->
+        <div class="c-card mb-4">
+            <div class="cd">
+                <div class="cd-left text-center w-50">
+                    <i class="material-icons text-muted opacity-10">local_activity</i>
+                    <div class="cd-text">
+                        Tickets
+                    </div>
+                </div>
+                <div class="ctn w-50">
+                    <div class="ctn-content" >23</div>
+                </div>
+            </div>
+            <div class="cd">
+                <div class="ctn w-50">
+                    <div class="ctn-content" >5</div>
+                </div>
+                <div class="cd-left cd-text w-50">Total agent</div>
+            </div>
+            <div class="cd"  data-bs-toggle="modal" data-bs-target="#addAgentModal">
+                <div class="cd-left cd-text w-50">Nouveau ticket</div>
+                <div class="ctn w-50">
+                    <div class="ctn-content">
+                        <i class="material-icons opacity-10">add_box</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>Welcome</p>
+      </div>
+     
      <!-- end body contenu -->
         
    </main>

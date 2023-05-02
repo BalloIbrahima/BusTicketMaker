@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link href="${pageContext.request.contextPath}/ressources/css/header.css" rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/ressources/css/index.css" rel="stylesheet" >
+		<link href="${pageContext.request.contextPath}/ressources/css/admin.css" rel="stylesheet" >
+	
 		<link href="${pageContext.request.contextPath}/ressources/css/material-dashboard.css" rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/ressources/css/material-dashboard.min.css" rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/ressources/css/nucleo-icons.css" rel="stylesheet" >
@@ -102,7 +104,7 @@
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
                     <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Accueil</li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+                <h6 class="font-weight-bolder mb-0">Amin</h6>
             </nav>
            
             <ul class="navbar-nav  justify-content-end">
@@ -120,7 +122,66 @@
      <!-- end head -->
      <!-- body contenu  -->
      <div class=" ps-5 pe-4 pb-5" >
-     	<p>Hello</p>
+     	<div class=" ps-5 pe-4 pb-5" >
+     	<div class="container mt-5 mb-5 d-flex justify-content-center">
+		    <form class="card px-1 py-4" method="post" action="admin">
+		        <div class="card-body">
+		            <h6 class="card-title mb-3">Ajouter un nouvel utilisateur !</h6>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                       <input class="form-control" id='nom' name='nom' required type="text" placeholder="Nom"> </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <div class="input-group"> <input class="form-control"  id='prenom' name='prenom' required type="text" placeholder="Prenom"> </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <div class="input-group"> <input class="form-control"  id='pseudo' name='pseudo' required type="text" placeholder="Pseudo"> </div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <% if (request.getAttribute("erreur")!=null) { %>
+           
+           			<div class="row erreur">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <div class="input-group"> 
+		                        	<label><%= request.getAttribute("erreur") %> </label>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        
+		           <%} %>
+		           
+		           <% if (request.getAttribute("succes")!=null) { %>
+           
+           			<div class="row succes">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <div class="input-group"> 
+		                        	<label><%= request.getAttribute("succes") %> </label>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        
+		           <%} %>
+		            
+		           
+		            <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="agree-text">Un mot de passe par defaut sera generer pour</small> <a href="#" class="terms">l'utilisateur</a> </div> <button class="btn btn-primary btn-block confirm-button" type='submit' name="creerbtn" value="creer">Valider</button>
+		        </div>
+		    </form>
+		</div>
+     </div>
      </div>
      <!-- end body contenu -->
         

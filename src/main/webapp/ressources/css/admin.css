@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+	
+.erreur{
+	background-color :red;
+	color:#fff
+}
+
+.succes
+{
+	background-color :green;
+	color:#fff
+}

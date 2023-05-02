@@ -84,7 +84,122 @@ d-mini{
 
 .succes
 {
-	background-color :green;
+	background-color :000333;
 	color:#fff
+}
+
+.c-card{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+.cd{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    font-size: 50px;
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: #fff;
+}
+.cd:nth-child(1){
+    margin-right: 15px;
+}
+.cd:nth-child(2){
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.cd:nth-child(3){
+    margin-left: 15px;
+    cursor: pointer;
+}
+.ctn{
+    height: 100%;
+    background: #000333;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px 10px;
+    position: relative;
+}
+button.b-ct {
+    background: border-box;
+    border: none;
+    color: #ffffff;
+}
+.cd-text{
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+}
+.cd-left{
+    text-align: center;
+}
+.cd-left, .ctn{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.cd i.material-icons{
+    font-size: 64px;
+}
+.ctn-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.2rem;
+}
+.agents-cd{
+    background-color: #000333;
+    font-weight: bold;
+    margin-right: 7.5px;
+    margin-left: 7.5px;
+    width: calc(100% - 15px);
+    z-index: 3;
+    border-color: #000333;
+}
+.agents-cd h5{
+    color: #fff;
+}
+
+/*responsivité*/
+  @media (max-width: 768px) {
+    .c-card{
+        flex-direction: column;
+    }
+    .c-card > div{
+        width: 100%;
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+    .cd-left i{
+        display: none;
+    }
+    .cd-left{
+        padding: 30px 0;
+    }
+    .ctn{
+        padding: 40px 0;
+    }
+    .order-content {
+        padding-bottom: 1rem;
+    }
+    .card.table{
+        overflow: scroll;
+    }
+    .card.table .card-body{
+        width: 630px;
+    }
+}
+@media screen and (max-width:600px) {
+    .box{
+        width: 40px;
+    }
+    
 }
 	
