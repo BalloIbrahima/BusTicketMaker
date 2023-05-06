@@ -39,6 +39,7 @@
 			request.setAttribute("tailleList",listUsers.size());
 			request.setAttribute("tailleBillet",listBillet.size());
 			request.setAttribute("list",listBillet);
+			
 
 			
 		%>
@@ -205,9 +206,9 @@
                             <div class="cst-market">${billet.destination}</div>
                             <div class="cst-num">${billet.prix} FCFA</div>
                            
-                            <div class="cst-action" data-bs-toggle="modal" data-bs-target="#modiclientModal">
-                                <button class="button" (click)="modif(c)">Modifier</button>
-                            </div>
+                            <form class="cst-action" method="get" action="${pageContext.request.contextPath}/nouveaubillet">
+                                <button class="button" name="idm" value="${billet.id}" type="submit">Modifier</button>
+                            </form>
                             <form class="cst-action" method="get" action="${pageContext.request.contextPath}/nouveaubillet">
                                 <button class="button" name="ids" value="${billet.id}" type="submit">Supprimer</button>
                             </form>

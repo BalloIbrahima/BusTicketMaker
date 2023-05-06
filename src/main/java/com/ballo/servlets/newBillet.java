@@ -42,6 +42,13 @@ public class newBillet extends HttpServlet {
            billet.setId((long) id);
            dao.supprimner(billet);
    		this.getServletContext().getRequestDispatcher("/pages/dashboard/index.jsp").forward(request, response);
+       } 
+       
+       if(request.getParameter("idm")!=null){
+           Long id = Long.parseLong(request.getParameter("idm"));
+           Billet billet = dao.recherche(id);
+          request.setAttribute("billet", billet);
+   		  this.getServletContext().getRequestDispatcher("/pages/dashboard/editeBillet.jsp").forward(request, response);
        }
 		this.getServletContext().getRequestDispatcher("/pages/dashboard/newBillet.jsp").forward(request, response);
 
@@ -54,8 +61,9 @@ public class newBillet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 	
+		BilletDaoImpl dao=new BilletDaoImpl();
 		if(request.getParameter("creerbtn")!=null) {
-			BilletDaoImpl dao=new BilletDaoImpl();
+			
 			System.out.println("ddddd");
 			
 			String nom=request.getParameter("nom");
@@ -88,6 +96,43 @@ public class newBillet extends HttpServlet {
 			
 			request.setAttribute("succes","Billet cree avec succes !");
 			dao.enregistrer(billet);
+			this.getServletContext().getRequestDispatcher("/pages/dashboard/index.jsp").forward(request, response);
+
+		}
+		
+		if(request.getParameter("modifierbtn")!=null) {		
+			
+			Long id = Long.parseLong(request.getParameter("id"));
+			String nom=request.getParameter("nom");
+			String prenom=request.getParameter("prenom");
+			
+			String destination=request.getParameter("destination");
+			String dateStr=request.getParameter("date");
+					
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+			SimpleDateFormat formater = new SimpleDateFormat("'le' dd/MM/yyyy 'à' hh:mm:ss");
+
+			//surround below line with try catch block as below code throws checked exception
+			Date date=new Date();
+			
+			String depart="";
+			
+			try {
+				date = (Date)sdf.parse(dateStr);
+				depart=formater.format(date);
+			}catch(Exception e) {
+				
+			}
+			
+			Long prix=Long.parseLong(request.getParameter("prix"));
+
+
+			
+			Billet billet=new Billet(nom,prenom,date,depart, destination,prix);
+			//verification de la presence d'un utilisateur avec le meme pseudo
+			
+			request.setAttribute("succes","Billet modifier avec succes !");
+			dao.modifier(billet, id);
 			this.getServletContext().getRequestDispatcher("/pages/dashboard/index.jsp").forward(request, response);
 
 		}

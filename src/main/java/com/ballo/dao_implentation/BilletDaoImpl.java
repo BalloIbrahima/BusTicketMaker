@@ -16,7 +16,7 @@ import com.ballo.entity.Billet;
 public class BilletDaoImpl implements Dao<Billet> {
 
 	@Override
-	public Billet recherche(int id) {
+	public Billet recherche(Long id) {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
@@ -38,7 +38,7 @@ public class BilletDaoImpl implements Dao<Billet> {
 	}
 
 	@Override
-	public void modifier(Billet obj, int id) {
+	public void modifier(Billet obj, Long id) {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
@@ -71,7 +71,7 @@ public class BilletDaoImpl implements Dao<Billet> {
 		// TODO Auto-generated method stub
 		List<Billet> liste = new ArrayList();
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("from Billet  DESC");
+        Query query = session.createQuery("from Billet ");
         liste = query.list();
         return liste;
 	}

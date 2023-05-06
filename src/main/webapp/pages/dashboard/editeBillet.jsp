@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@page import="com.ballo.entity.Billet"%>
+    
+        <%@page import="com.ballo.dao_implentation.UtilisateurDaoImpl"%>
+                <%@page import="com.ballo.dao_implentation.BilletDaoImpl"%>
+        
+    <%@page import="java.util.List"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +26,13 @@
 <body>
 	
  
-
+<% 	
+		BilletDaoImpl dao=new BilletDaoImpl();
+			//Long id=Long.parse(request.getAttribute("billetid"));
+			
+	        //  Billet billet = dao.recherche(id);
+			
+		%>
 <div>
     <!-- menu -->
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
@@ -52,7 +65,7 @@
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">add_to_photos</i>
               </div>
-            <span class="nav-link-text ms-1">nouveau billet</span>
+            <span class="nav-link-text ms-1">Modifier billet</span>
           </a>
         </li>
        
@@ -127,16 +140,22 @@
 		    <form class="card px-1 py-4" method="post" action="${pageContext.request.contextPath}/newBillet">
 		        <div class="card-body">
 		            <h6 class="card-title mb-3">Modifier billet !</h6>
-		            <div class="row">
+		            <div class="row d-none">
 		                <div class="col-sm-12">
 		                    <div class="form-group">
-		                       <input class="form-control" id='nom' name='nom' required type="text" placeholder="Nom Client"> </div>
+		                       <input class="form-control" id='id' name='id' required type="text" value="${billet.id}" placeholder="id Client"> </div>
 		                </div>
 		            </div>
 		            <div class="row">
 		                <div class="col-sm-12">
 		                    <div class="form-group">
-		                        <div class="input-group"> <input class="form-control"  id='prenom' name='prenom' required type="text" placeholder="Prenom Client"> </div>
+		                       <input class="form-control" id='nom' name='nom' required type="text" value="${billet.nomClient}" placeholder="Nom Client"> </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <div class="input-group"> <input class="form-control"  id='prenom' name='prenom' value="${billet.prenomClient}" required type="text" placeholder="Prenom Client"> </div>
 		                    </div>
 		                </div>
 		            </div>
@@ -144,14 +163,14 @@
 		             <div class="row">
 		                <div class="col-sm-12">
 		                    <div class="form-group">
-		                        <div class="input-group"> <input class="form-control"  id='date' name='date' required type="datetime-local" placeholder="Date et heure de depart "> </div>
+		                        <div class="input-group"> <input class="form-control"  id='date' name='date' required value="${billet.heureDepart}"  type="datetime-local" placeholder="Date et heure de depart "> </div>
 		                    </div>
 		                </div>
 		            </div>
 		            <div class="row">
 		                <div class="col-sm-12">
 		                    <div class="form-group">
-		                        <div class="input-group"> <input class="form-control"  id='destination' name='destination' required type="text" placeholder="Destination"> </div>
+		                        <div class="input-group"> <input class="form-control"  id='destination' name='destination' required type="text" value="${billet.destination}"  placeholder="Destination"> </div>
 		                    </div>
 		                </div>
 		            </div>
@@ -159,7 +178,7 @@
 		            <div class="row">
 		                <div class="col-sm-12">
 		                    <div class="form-group">
-		                        <div class="input-group"> <input class="form-control"  id='prix' name='prix' required type="number" placeholder="Prix"> </div>
+		                        <div class="input-group"> <input class="form-control"  id='prix' name='prix' required type="number" value="${billet.prix}"  placeholder="Prix"> </div>
 		                    </div>
 		                </div>
 		            </div>
@@ -193,7 +212,7 @@
 		           <%} %>
 		            
 		           
-		            <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="agree-text">Pour mofier, changer des champs et valider</small> <a href="#" class="terms">valider</a> </div> <button class="btn btn-primary btn-block confirm-button" type='submit' name="modifierbtn" value="modifier">Modifier</button>
+		            <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="agree-text">Pour modifier, changer des champs et valider</small> <a href="#" class="terms">valider</a> </div> <button class="btn btn-primary btn-block confirm-button" type='submit' name="modifierbtn" value="modifier">Modifier</button>
 		        </div>
 		    </form>
 		</div>

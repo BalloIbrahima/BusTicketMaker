@@ -170,9 +170,9 @@
                                 <button class="button" (click)="modif(c)">Modifier</button>
                             </div>
                             
-                            <div class="cst-action" data-bs-toggle="modal" data-bs-target="#modiclientModal">
-                                <button class="button" (click)="modif(c)">supprimer</button>
-                            </div>
+                            <form class="cst-action" method="get" action="${pageContext.request.contextPath}/admin">
+                                <button class="button" name="ids" value="${user.id}" type="submit">Supprimer</button>
+                            </form>
                         </div>
                         </c:forEach>
       </div>

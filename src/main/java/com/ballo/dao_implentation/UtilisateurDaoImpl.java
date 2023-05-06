@@ -21,7 +21,7 @@ public class UtilisateurDaoImpl implements Dao<Utilisateur> , UtilisateurDao{
 	PasswordEncoder encoder;
 
 	@Override
-	public Utilisateur recherche(int id) {
+	public Utilisateur recherche(Long id) {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
@@ -44,7 +44,7 @@ public class UtilisateurDaoImpl implements Dao<Utilisateur> , UtilisateurDao{
 	}
 
 	@Override
-	public void modifier(Utilisateur obj, int id) {
+	public void modifier(Utilisateur obj, Long id) {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
