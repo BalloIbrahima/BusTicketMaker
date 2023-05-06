@@ -25,4 +25,26 @@
 	</servlet-mapping>
 	 
 	
+	<servlet>
+	  <description></description>
+	  <display-name>ListAdmin</display-name>
+	  <servlet-name>ListAdmin</servlet-name>
+	  <servlet-class>com.ballo.servlets.ListAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>ListAdmin</servlet-name>
+	  <url-pattern>/listadmin</url-pattern>
+	</servlet-mapping>
+	 
+	<servlet>
+	  <description></description>
+	  <display-name>newBillet</display-name>
+	  <servlet-name>newBillet</servlet-name>
+	  <servlet-class>com.ballo.servlets.newBillet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>newBillet</servlet-name>
+	  <url-pattern>/nouveaubillet</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

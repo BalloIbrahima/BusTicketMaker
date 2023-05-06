@@ -23,17 +23,19 @@ public class Billet implements Serializable{
 	private String prenomClient;
 	
 	private Date heureDepart;
+	private String depart;
 	private String destination;
 	private Long prix;
 	
 	
-	public Billet(String nomClient, String prenomClient, Date heureDepart, String destination, Long prix) {
+	public Billet(String nomClient, String prenomClient, Date heureDepart, String depart, String destination, Long prix) {
 		
 		this.nomClient = nomClient;
 		this.prenomClient = prenomClient;
 		this.heureDepart = heureDepart;
 		this.destination = destination;
 		this.prix = prix;
+		this.depart = depart;
 	}
 
 
@@ -44,6 +46,17 @@ public class Billet implements Serializable{
 
 	public Long getId() {
 		return id;
+	}
+
+
+	
+	public String getDepart() {
+		return depart;
+	}
+
+
+	public void setDepart(String depart) {
+		this.depart = depart;
 	}
 
 

@@ -49,5 +49,6 @@ body{
 
 .erreur{
 	background-color :red;
-	color:#fff
+	color:#fff;
+	padding:5px
 }

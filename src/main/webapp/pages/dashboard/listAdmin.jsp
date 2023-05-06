@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@page import="com.ballo.entity.Utilisateur"%>
-        <%@page import="com.ballo.entity.Billet"%>
-    
         <%@page import="com.ballo.dao_implentation.UtilisateurDaoImpl"%>
-                <%@page import="com.ballo.dao_implentation.BilletDaoImpl"%>
-        
     <%@page import="java.util.List"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +17,7 @@
 	<link href="${pageContext.request.contextPath}/ressources/css/material-dashboard.min.css" rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/ressources/css/nucleo-icons.css" rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/ressources/css/nucleo-svg.css" rel="stylesheet" >
-
+	
 </head>
 <body>
 	
@@ -29,18 +26,11 @@
 <div>
 <% 	HttpSession sess=request.getSession();
 			
-			
+			UtilisateurDaoImpl daoUser=new UtilisateurDaoImpl();
 			Utilisateur u=(Utilisateur) sess.getAttribute("user");
 			
-			UtilisateurDaoImpl daoUser=new UtilisateurDaoImpl();
-			BilletDaoImpl daoBillet=new BilletDaoImpl();
 			List<Utilisateur> listUsers=daoUser.liste();
-			List<Billet> listBillet=daoBillet.liste();
-			request.setAttribute("tailleList",listUsers.size());
-			request.setAttribute("tailleBillet",listBillet.size());
-			request.setAttribute("list",listBillet);
-
-			
+			request.setAttribute("list",listUsers);
 		%>
     <!-- menu -->
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
@@ -61,7 +51,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white active" href="${pageContext.request.contextPath}/pages/dashboard/index.jsp">
+          <a class="nav-link text-white" href="${pageContext.request.contextPath}/pages/dashboard/index.jsp">
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">home</i>
               </div>
@@ -79,7 +69,7 @@
        
         
         <li class="nav-item">
-          <a class="nav-link text-white  " href="${pageContext.request.contextPath}/pages/dashboard/listAdmin.jsp">
+          <a class="nav-link text-white active " href="${pageContext.request.contextPath}/pages/dashboard/listAdmin.jsp">
             
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">group</i>
@@ -125,7 +115,7 @@
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
                     <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Accueil</li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Accueil</h6>
+                <h6 class="font-weight-bolder mb-0">List des admins</h6>
             </nav>
            
             <ul class="navbar-nav  justify-content-end">
@@ -144,73 +134,45 @@
      <!-- body contenu  -->
      <div class="custom-container ps-5 pe-4 pb-5">
         <!-- <div class="container-fluid py-1 mx-4  "> -->
-        <div class="c-card mb-4">
-            <div class="cd">
-                <div class="cd-left text-center w-50">
-                    <i class="material-icons text-muted opacity-10">local_activity</i>
-                    <div class="cd-text">
-                        Tickets
-                    </div>
-                </div>
-                <div class="ctn w-50">
-                    <div class="ctn-content" >${tailleBillet}</div>
-                </div>
-            </div>
-            <div class="cd">
-                <div class="ctn w-50">
-                    <div class="ctn-content" >${tailleList}</div>
-                </div>
-                <div class="cd-left cd-text w-50">Total agent</div>
-            </div>
-            <a class="cd"  href="${pageContext.request.contextPath}/pages/dashboard/newBillet.jsp">
-                <div class="cd-left cd-text w-50">Nouveau ticket</div>
-                <div class="ctn w-50">
-                    <div class="ctn-content">
-                        <i class="material-icons opacity-10">add_box</i>
-                    </div>
-                </div>
-            </a>
-        </div>
+        
         <div class="order-content">
             <div class="card customers-cd">
                 <div class="card-body">
-                    <h5 class="card-title text-center fw-bold fs-4 mb-0">Liste des billets</h5>
+                    <h5 class="card-title text-center fw-bold fs-4 mb-0">Liste des administrateurs</h5>
                 </div>
             </div>
             <div class="card table">
                 <div class="card-body py-0 px-3 pb-3">
                     <div class="customers">
                         <div class="customer fw-bold">
-                        	<div class="cst-name">Numero</div>
-                            <div class="cst-name">Client</div>
-                            <div class="cst-id">Depart</div>
-                            <div class="cst-market">destination</div>
-                            <div class="cst-num">Prix</div>
-		                      <div class="cst-num"></div>
-		                       <div class="cst-num"></div>
+                        	<div class="cst-name">Numero </div>
+                            <div class="cst-name">Nom </div>
+                            <div class="cst-id">Prénom</div>
+                            <div class="cst-market">Pseudo</div>
+                           
+                            <div class="cst-action"></div>
+                            <div class="cst-action"></div>
                         </div>
                         <!-- La partie qui sera dans la boucle  -->
-                        <c:forEach items="${list}" var="billet" varStatus="statut">
-                        
+                        <c:forEach items="${list}" var="user" varStatus="statut">
                         <div class="customer" >
-                            <div class="cst-name">
+                         	<div class="cst-name">
                                 <span class="r_name">${statut.count}</span><br>
       
                             </div>
                             <div class="cst-name">
-                                <span class="r_name">${billet.nomClient}</span><br>
-      							<span class="r_name">${billet.prenomClient}</span><br>
+                                <span class="r_name">${user.nom}</span><br>
+      
                             </div>
-                            <div class="cst-id">${billet.depart}</div>
-                            <div class="cst-market">${billet.destination}</div>
-                            <div class="cst-num">${billet.prix} FCFA</div>
-                           
+                            <div class="cst-id">${user.prenom}</div>                            
+                            <div class="cst-sector">${user.pseudo}</div>
                             <div class="cst-action" data-bs-toggle="modal" data-bs-target="#modiclientModal">
                                 <button class="button" (click)="modif(c)">Modifier</button>
                             </div>
-                            <form class="cst-action" method="get" action="${pageContext.request.contextPath}/nouveaubillet">
-                                <button class="button" name="ids" value="${billet.id}" type="submit">Supprimer</button>
-                            </form>
+                            
+                            <div class="cst-action" data-bs-toggle="modal" data-bs-target="#modiclientModal">
+                                <button class="button" (click)="modif(c)">supprimer</button>
+                            </div>
                         </div>
                         </c:forEach>
       </div>

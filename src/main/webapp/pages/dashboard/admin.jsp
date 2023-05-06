@@ -40,40 +40,40 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white ">
+          <a class="nav-link text-white" href="${pageContext.request.contextPath}/pages/dashboard/index.jsp">
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">home</i>
               </div>
             <span class="nav-link-text ms-1">Accueil</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " >
+         <li class="nav-item">
+          <a class="nav-link text-white " href="${pageContext.request.contextPath}/pages/dashboard/newBillet.jsp">
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">support_agent</i>
+                <i class="material-icons opacity-10">add_to_photos</i>
               </div>
-            <span class="nav-link-text ms-1">Ticket</span>
+            <span class="nav-link-text ms-1">nouveau billet</span>
           </a>
         </li>
+       
+        
         <li class="nav-item">
-          <a class="nav-link text-white ">
+          <a class="nav-link text-whites " href="${pageContext.request.contextPath}/pages/dashboard/listAdmin.jsp">
             
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">group</i>
               </div>
             
-            <span class="nav-link-text ms-1">Client</span>
+            <span class="nav-link-text ms-1 active" >Admins</span>
           </a>
         </li>
         
-        <li class="nav-item">
-          <a class="nav-link text-white " href="${pageContext.request.contextPath}/">
-            
+         <li class="nav-item">
+          <a class="nav-link text-white active" href="${pageContext.request.contextPath}/pages/dashboard/admin.jsp">
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">group</i>
+                <i class="material-icons opacity-10">group_add</i>
               </div>
-            
-            <span class="nav-link-text ms-1 actives">Admins</span>
+            <span class="nav-link-text ms-1">Nouveau admin</span>
           </a>
         </li>
        
@@ -81,9 +81,9 @@
     </div>
     
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-      <div class="mx-3">
-        <a class="btn bg-gradient-danger mt-4 w-100"  type="button">Déconnexion</a>
-      </div>
+      <form class="mx-3" method="get" action="${pageContext.request.contextPath}/home">
+        <button class="btn bg-gradient-danger mt-4 w-100"  name="logoutbtn" value="logout" type="submit">Déconnexion</button>
+      </form>
     </div>
   </aside>
     <!-- end menu -->
@@ -104,7 +104,7 @@
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
                     <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Accueil</li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Amin</h6>
+                <h6 class="font-weight-bolder mb-0">Admin</h6>
             </nav>
            
             <ul class="navbar-nav  justify-content-end">
@@ -124,7 +124,7 @@
      <div class=" ps-5 pe-4 pb-5" >
      	<div class=" ps-5 pe-4 pb-5" >
      	<div class="container mt-5 mb-5 d-flex justify-content-center">
-		    <form class="card px-1 py-4" method="post" action="admin">
+		    <form class="card px-1 py-4" method="post" action="${pageContext.request.contextPath}/AdminServlet">
 		        <div class="card-body">
 		            <h6 class="card-title mb-3">Ajouter un nouvel utilisateur !</h6>
 		            <div class="row">

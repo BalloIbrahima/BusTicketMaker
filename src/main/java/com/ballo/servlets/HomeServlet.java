@@ -33,6 +33,12 @@ public class HomeServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		HttpSession session=request.getSession();
+		if(request.getParameter("logoutbtn")!=null) {
+			session.removeAttribute("user");
+			this.getServletContext().getRequestDispatcher("/pages/login.jsp").forward(request, response);
+
+		}
+		
 		Utilisateur user=(Utilisateur) session.getAttribute("user");
 //		
 		if(user==null) {

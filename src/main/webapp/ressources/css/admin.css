@@ -2,12 +2,22 @@
 
 	
 .erreur{
-	background-color :red;
-	color:#fff
+	background-color: #6f1c1c;
+    color: #fff;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+    display: flex !important;
 }
 
 .succes
 {
 	background-color :green;
 	color:#fff
+}
+
+.erreur label{
+	text-align: center;
+    margin: auto;
+    justify-content: center;
 }

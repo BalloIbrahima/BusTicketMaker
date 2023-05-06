@@ -37,6 +37,14 @@ public class AdminServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		UtilisateurDaoImpl dao=new UtilisateurDaoImpl();
+	       if(request.getParameter("ids")!=null){
+	           int id = Integer.parseInt(request.getParameter("ids"));
+	           Utilisateur user=new Utilisateur();
+	           user.setId((long) id);
+	           dao.supprimner(user);
+	   		this.getServletContext().getRequestDispatcher("/pages/dashboard/listAdmin.jsp").forward(request, response);
+	       }
 		this.getServletContext().getRequestDispatcher("/pages/dashboard/admin.jsp").forward(request, response);
 
 	}
@@ -62,11 +70,11 @@ public class AdminServlet extends HttpServlet {
 			Utilisateur userVerif=dao.parPseudo(pseudo);
 			if(userVerif!=null) {
 				request.setAttribute("erreur","Un utilisateur existe deja avec le meme pseudo !");
-				this.getServletContext().getRequestDispatcher("/pages/dashboard/index.jsp").forward(request, response);
+				this.getServletContext().getRequestDispatcher("/pages/dashboard/admin.jsp").forward(request, response);
 			}
 			request.setAttribute("succes","Utilisateur cree avec succes !");
 			dao.enregistrer(user);
-			this.getServletContext().getRequestDispatcher("/pages/dashboard/index.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/pages/dashboard/listAdmin.jsp").forward(request, response);
 
 		}
 	}

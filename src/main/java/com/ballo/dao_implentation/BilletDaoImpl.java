@@ -71,7 +71,7 @@ public class BilletDaoImpl implements Dao<Billet> {
 		// TODO Auto-generated method stub
 		List<Billet> liste = new ArrayList();
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("from Billet");
+        Query query = session.createQuery("from Billet  DESC");
         liste = query.list();
         return liste;
 	}

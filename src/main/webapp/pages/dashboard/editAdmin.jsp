@@ -1,21 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@page import="com.ballo.entity.Utilisateur"%>
-        <%@page import="com.ballo.entity.Billet"%>
-    
-        <%@page import="com.ballo.dao_implentation.UtilisateurDaoImpl"%>
-                <%@page import="com.ballo.dao_implentation.BilletDaoImpl"%>
-        
-    <%@page import="java.util.List"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dahboard</title>
+<title>Dashboard</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link href="${pageContext.request.contextPath}/ressources/css/header.css" rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/ressources/css/index.css" rel="stylesheet" >
+		<link href="${pageContext.request.contextPath}/ressources/css/admin.css" rel="stylesheet" >
+	
 		<link href="${pageContext.request.contextPath}/ressources/css/material-dashboard.css" rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/ressources/css/material-dashboard.min.css" rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/ressources/css/nucleo-icons.css" rel="stylesheet" >
@@ -27,21 +21,6 @@
  
 
 <div>
-<% 	HttpSession sess=request.getSession();
-			
-			
-			Utilisateur u=(Utilisateur) sess.getAttribute("user");
-			
-			UtilisateurDaoImpl daoUser=new UtilisateurDaoImpl();
-			BilletDaoImpl daoBillet=new BilletDaoImpl();
-			List<Utilisateur> listUsers=daoUser.liste();
-			List<Billet> listBillet=daoBillet.liste();
-			request.setAttribute("tailleList",listUsers.size());
-			request.setAttribute("tailleBillet",listBillet.size());
-			request.setAttribute("list",listBillet);
-
-			
-		%>
     <!-- menu -->
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
@@ -61,7 +40,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white active" href="${pageContext.request.contextPath}/pages/dashboard/index.jsp">
+          <a class="nav-link text-white" href="${pageContext.request.contextPath}/pages/dashboard/index.jsp">
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">home</i>
               </div>
@@ -79,7 +58,7 @@
        
         
         <li class="nav-item">
-          <a class="nav-link text-white  " href="${pageContext.request.contextPath}/pages/dashboard/listAdmin.jsp">
+          <a class="nav-link text-whites " href="${pageContext.request.contextPath}/pages/dashboard/listAdmin.jsp">
             
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">group</i>
@@ -125,14 +104,14 @@
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
                     <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Accueil</li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Accueil</h6>
+                <h6 class="font-weight-bolder mb-0">Admin</h6>
             </nav>
            
             <ul class="navbar-nav  justify-content-end">
                 <li class="nav-item d-flex align-items-center">
                     <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
                         <i class="fa fa-user me-sm-1"></i>
-                        <span class="d-sm-inline d-none"><%= u.getNom() %> <%= u.getPrenom() %></span>
+                        <span class="d-sm-inline d-none">Ballo Ibrahima</span>
                     </a>
                 </li>
                 
@@ -142,79 +121,76 @@
     </nav>
      <!-- end head -->
      <!-- body contenu  -->
-     <div class="custom-container ps-5 pe-4 pb-5">
-        <!-- <div class="container-fluid py-1 mx-4  "> -->
-        <div class="c-card mb-4">
-            <div class="cd">
-                <div class="cd-left text-center w-50">
-                    <i class="material-icons text-muted opacity-10">local_activity</i>
-                    <div class="cd-text">
-                        Tickets
-                    </div>
-                </div>
-                <div class="ctn w-50">
-                    <div class="ctn-content" >${tailleBillet}</div>
-                </div>
-            </div>
-            <div class="cd">
-                <div class="ctn w-50">
-                    <div class="ctn-content" >${tailleList}</div>
-                </div>
-                <div class="cd-left cd-text w-50">Total agent</div>
-            </div>
-            <a class="cd"  href="${pageContext.request.contextPath}/pages/dashboard/newBillet.jsp">
-                <div class="cd-left cd-text w-50">Nouveau ticket</div>
-                <div class="ctn w-50">
-                    <div class="ctn-content">
-                        <i class="material-icons opacity-10">add_box</i>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="order-content">
-            <div class="card customers-cd">
-                <div class="card-body">
-                    <h5 class="card-title text-center fw-bold fs-4 mb-0">Liste des billets</h5>
-                </div>
-            </div>
-            <div class="card table">
-                <div class="card-body py-0 px-3 pb-3">
-                    <div class="customers">
-                        <div class="customer fw-bold">
-                        	<div class="cst-name">Numero</div>
-                            <div class="cst-name">Client</div>
-                            <div class="cst-id">Depart</div>
-                            <div class="cst-market">destination</div>
-                            <div class="cst-num">Prix</div>
-		                      <div class="cst-num"></div>
-		                       <div class="cst-num"></div>
-                        </div>
-                        <!-- La partie qui sera dans la boucle  -->
-                        <c:forEach items="${list}" var="billet" varStatus="statut">
-                        
-                        <div class="customer" >
-                            <div class="cst-name">
-                                <span class="r_name">${statut.count}</span><br>
-      
-                            </div>
-                            <div class="cst-name">
-                                <span class="r_name">${billet.nomClient}</span><br>
-      							<span class="r_name">${billet.prenomClient}</span><br>
-                            </div>
-                            <div class="cst-id">${billet.depart}</div>
-                            <div class="cst-market">${billet.destination}</div>
-                            <div class="cst-num">${billet.prix} FCFA</div>
-                           
-                            <div class="cst-action" data-bs-toggle="modal" data-bs-target="#modiclientModal">
-                                <button class="button" (click)="modif(c)">Modifier</button>
-                            </div>
-                            <form class="cst-action" method="get" action="${pageContext.request.contextPath}/nouveaubillet">
-                                <button class="button" name="ids" value="${billet.id}" type="submit">Supprimer</button>
-                            </form>
-                        </div>
-                        </c:forEach>
-      </div>
-     
+     <div class=" ps-5 pe-4 pb-5" >
+     	<div class=" ps-5 pe-4 pb-5" >
+     	<div class="container mt-5 mb-5 d-flex justify-content-center">
+		    <form class="card px-1 py-4" method="post" action="${pageContext.request.contextPath}/AdminServlet">
+		        <div class="card-body">
+		            <h6 class="card-title mb-3">Modifier un utilisateur !</h6>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                       <input class="form-control" id='nom' name='nom' required type="text" placeholder="Nom"> </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <div class="input-group"> <input class="form-control"  id='prenom' name='prenom' required type="text" placeholder="Prenom"> </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <div class="input-group"> <input class="form-control"  id='pseudo' name='pseudo' required type="text" placeholder="Pseudo"> </div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		          	<div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <div class="input-group"> <input class="form-control"  id='password' name='password' required type="password" placeholder="Mot de passe"> </div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <% if (request.getAttribute("erreur")!=null) { %>
+           
+           			<div class="row erreur">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <div class="input-group"> 
+		                        	<label><%= request.getAttribute("erreur") %> </label>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        
+		           <%} %>
+		           
+		           <% if (request.getAttribute("succes")!=null) { %>
+           
+           			<div class="row succes">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <div class="input-group"> 
+		                        	<label><%= request.getAttribute("succes") %> </label>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        
+		           <%} %>
+		            
+		           
+		            <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="agree-text">Un mot de passe par defaut sera generer pour</small> <a href="#" class="terms">l'utilisateur</a> </div> <button class="btn btn-primary btn-block confirm-button" type='submit' name="modifierbtn" value="modifier">Modifier</button>
+		        </div>
+		    </form>
+		</div>
+     </div>
+     </div>
      <!-- end body contenu -->
         
    </main>
