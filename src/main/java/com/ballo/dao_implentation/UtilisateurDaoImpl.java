@@ -52,7 +52,8 @@ public class UtilisateurDaoImpl implements Dao<Utilisateur> , UtilisateurDao{
         user.setNom(obj.getNom());
         user.setPrenom(obj.getPrenom());
         user.setPseudo(obj.getPseudo());
-        
+        user.setMotDePasse(obj.getMotDePasse());
+       
         session.update(user);
         transaction.commit();
         session.close();

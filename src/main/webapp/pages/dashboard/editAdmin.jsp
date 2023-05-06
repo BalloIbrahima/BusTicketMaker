@@ -73,7 +73,7 @@
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">group_add</i>
               </div>
-            <span class="nav-link-text ms-1">Nouveau admin</span>
+            <span class="nav-link-text ms-1">Modifier admin</span>
           </a>
         </li>
        
@@ -127,23 +127,30 @@
 		    <form class="card px-1 py-4" method="post" action="${pageContext.request.contextPath}/AdminServlet">
 		        <div class="card-body">
 		            <h6 class="card-title mb-3">Modifier un utilisateur !</h6>
-		            <div class="row">
+		            
+		            <div class="row d-none">
 		                <div class="col-sm-12">
 		                    <div class="form-group">
-		                       <input class="form-control" id='nom' name='nom' required type="text" placeholder="Nom"> </div>
+		                       <input class="form-control" id='id' name='id' required type="text" value="${user.id}" placeholder="id Client"> </div>
 		                </div>
 		            </div>
 		            <div class="row">
 		                <div class="col-sm-12">
 		                    <div class="form-group">
-		                        <div class="input-group"> <input class="form-control"  id='prenom' name='prenom' required type="text" placeholder="Prenom"> </div>
+		                       <input class="form-control" id='nom' name='nom' required type="text" value="${user.nom}" placeholder="Nom"> </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <div class="input-group"> <input class="form-control"  id='prenom' name='prenom' value="${user.prenom}" required type="text" placeholder="Prenom"> </div>
 		                    </div>
 		                </div>
 		            </div>
 		            <div class="row">
 		                <div class="col-sm-12">
 		                    <div class="form-group">
-		                        <div class="input-group"> <input class="form-control"  id='pseudo' name='pseudo' required type="text" placeholder="Pseudo"> </div>
+		                        <div class="input-group"> <input class="form-control"  id='pseudo' name='pseudo' value="${user.pseudo}" required type="text" placeholder="Pseudo"> </div>
 		                    </div>
 		                </div>
 		            </div>
@@ -151,7 +158,7 @@
 		          	<div class="row">
 		                <div class="col-sm-12">
 		                    <div class="form-group">
-		                        <div class="input-group"> <input class="form-control"  id='password' name='password' required type="password" placeholder="Mot de passe"> </div>
+		                        <div class="input-group"> <input class="form-control" type="password" id='password' name='password' value="${user.motDePasse}" required  placeholder="Mot de passe"> </div>
 		                    </div>
 		                </div>
 		            </div>

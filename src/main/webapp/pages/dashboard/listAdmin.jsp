@@ -166,9 +166,9 @@
                             </div>
                             <div class="cst-id">${user.prenom}</div>                            
                             <div class="cst-sector">${user.pseudo}</div>
-                            <div class="cst-action" data-bs-toggle="modal" data-bs-target="#modiclientModal">
-                                <button class="button" (click)="modif(c)">Modifier</button>
-                            </div>
+                            <form class="cst-action" method="get" action="${pageContext.request.contextPath}/admin">
+                                <button class="button" name="idm" value="${user.id}" type="submit">Modifier</button>
+                            </form>
                             
                             <form class="cst-action" method="get" action="${pageContext.request.contextPath}/admin">
                                 <button class="button" name="ids" value="${user.id}" type="submit">Supprimer</button>

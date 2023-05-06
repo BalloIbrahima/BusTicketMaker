@@ -44,8 +44,14 @@ public class AdminServlet extends HttpServlet {
 	           user.setId((long) id);
 	           dao.supprimner(user);
 	   		this.getServletContext().getRequestDispatcher("/pages/dashboard/listAdmin.jsp").forward(request, response);
-	       }
-		this.getServletContext().getRequestDispatcher("/pages/dashboard/admin.jsp").forward(request, response);
+	       }else
+	       if(request.getParameter("idm")!=null){
+	           Long id = Long.parseLong(request.getParameter("idm"));
+	           Utilisateur user = dao.recherche(id);
+	          request.setAttribute("user", user);
+	   		  this.getServletContext().getRequestDispatcher("/pages/dashboard/editAdmin.jsp").forward(request, response);
+	       }else
+		    this.getServletContext().getRequestDispatcher("/pages/dashboard/admin.jsp").forward(request, response);
 
 	}
 
@@ -74,9 +80,35 @@ public class AdminServlet extends HttpServlet {
 			}
 			request.setAttribute("succes","Utilisateur cree avec succes !");
 			dao.enregistrer(user);
-			this.getServletContext().getRequestDispatcher("/pages/dashboard/listAdmin.jsp").forward(request, response);
+
+		}else
+		
+		if(request.getParameter("modifierbtn")!=null) {
+			UtilisateurDaoImpl dao=new UtilisateurDaoImpl();
+			System.out.println("ddddd");
+			
+			Long id = Long.parseLong(request.getParameter("id"));
+			String nom=request.getParameter("nom");
+			String prenom=request.getParameter("prenom");
+			String pseudo=request.getParameter("pseudo");
+			String motDePasse=request.getParameter("password");
+			
+			System.out.println(motDePasse);
+			Utilisateur ancienUser=dao.recherche(id);
+			Utilisateur user=new Utilisateur(nom,prenom,pseudo,motDePasse);
+			//verification de la presence d'un utilisateur avec le meme pseudo
+			Utilisateur userVerif=dao.parPseudo(pseudo);
+			if(userVerif!=null && !pseudo.equals(ancienUser.getPseudo()) ) {
+				request.setAttribute("erreur","Un utilisateur existe deja avec le meme pseudo !");
+				request.setAttribute("user", user);
+		   		this.getServletContext().getRequestDispatcher("/pages/dashboard/editAdmin.jsp").forward(request, response);
+			}
+			request.setAttribute("succes","Utilisateur cree avec succes !");
+			dao.modifier(user,id);
 
 		}
+		this.getServletContext().getRequestDispatcher("/pages/dashboard/listAdmin.jsp").forward(request, response);
+
 	}
 
 }
