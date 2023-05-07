@@ -25,7 +25,7 @@
 
 <div>
 <% 	HttpSession sess=request.getSession();
-			
+
 			UtilisateurDaoImpl daoUser=new UtilisateurDaoImpl();
 			Utilisateur u=(Utilisateur) sess.getAttribute("user");
 			
@@ -55,7 +55,7 @@
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">home</i>
               </div>
-            <span class="nav-link-text ms-1">Accueil</span>
+            <span class="nav-link-text ms-1">List des administraeurs</span>
           </a>
         </li>
          <li class="nav-item">
@@ -63,7 +63,7 @@
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">add_to_photos</i>
               </div>
-            <span class="nav-link-text ms-1">nouveau billet</span>
+            <span class="nav-link-text ms-1">List admin</span>
           </a>
         </li>
        
@@ -113,7 +113,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Accueil</li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">List des administrateurs</li>
                 </ol>
                 <h6 class="font-weight-bolder mb-0">List des admins</h6>
             </nav>

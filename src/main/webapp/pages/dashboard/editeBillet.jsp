@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@page import="com.ballo.entity.Billet"%>
+            <%@page import="com.ballo.entity.Utilisateur"%>
     
         <%@page import="com.ballo.dao_implentation.UtilisateurDaoImpl"%>
                 <%@page import="com.ballo.dao_implentation.BilletDaoImpl"%>
@@ -25,8 +26,12 @@
 </head>
 <body>
 	
- 
+
 <% 	
+HttpSession sess=request.getSession();
+
+
+Utilisateur u=(Utilisateur) sess.getAttribute("user");
 		BilletDaoImpl dao=new BilletDaoImpl();
 			//Long id=Long.parse(request.getAttribute("billetid"));
 			
@@ -57,7 +62,7 @@
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">home</i>
               </div>
-            <span class="nav-link-text ms-1">Accueil</span>
+            <span class="nav-link-text ms-1">Modifier un billet</span>
           </a>
         </li>
          <li class="nav-item">
@@ -115,7 +120,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Accueil</li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Modifier un billet</li>
                 </ol>
                 <h6 class="font-weight-bolder mb-0">Nouveau Billet</h6>
             </nav>
@@ -124,7 +129,7 @@
                 <li class="nav-item d-flex align-items-center">
                     <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
                         <i class="fa fa-user me-sm-1"></i>
-                        <span class="d-sm-inline d-none">Ballo Ibrahima</span>
+                        <span class="d-sm-inline d-none"><%= u.getNom() %> <%= u.getPrenom() %></span>
                     </a>
                 </li>
                 

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+            <%@page import="com.ballo.entity.Utilisateur"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +23,16 @@
  
 
 <div>
+<% 	HttpSession sess=request.getSession();
+			
+			
+			Utilisateur u=(Utilisateur) sess.getAttribute("user");
+			
+			
+			
+
+			
+		%>
     <!-- menu -->
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
@@ -44,7 +56,7 @@
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">home</i>
               </div>
-            <span class="nav-link-text ms-1">Accueil</span>
+            <span class="nav-link-text ms-1">Modifier un administrateur</span>
           </a>
         </li>
          <li class="nav-item">
@@ -52,7 +64,7 @@
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">add_to_photos</i>
               </div>
-            <span class="nav-link-text ms-1">nouveau billet</span>
+            <span class="nav-link-text ms-1">Modifier admin</span>
           </a>
         </li>
        
@@ -102,7 +114,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Accueil</li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Modifier un admin</li>
                 </ol>
                 <h6 class="font-weight-bolder mb-0">Admin</h6>
             </nav>
@@ -111,7 +123,7 @@
                 <li class="nav-item d-flex align-items-center">
                     <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
                         <i class="fa fa-user me-sm-1"></i>
-                        <span class="d-sm-inline d-none">Ballo Ibrahima</span>
+                        <span class="d-sm-inline d-none"><%= u.getNom() %> <%= u.getPrenom() %></span>
                     </a>
                 </li>
                 
